@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Card Details</title>
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+   <script src="angularjs/guest.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+  </head>
+   <body ng-app="guestModule" ng-controller="propertyController" ng-init="load()">
+   <nav class="navbar" style="border-color: rgba(143, 156, 255, 0.27);min-height: 62px">
+
+    <a href="admindash" style="min-height: inherit">
+        <div align="center" class="col-xs-1" style="width: 5%;border-right: 1px solid lightgrey;padding: inherit; min-height: inherit;">
+            <img src="New-2014-Air-Bnb-Logo.png" style="max-height: 32px;max-width: 32px; margin-top: 10px">
+        </div>
+    </a>
+
+
+    <a ui-sref="approvals" style="min-height: inherit">
+        <div class="col-xs-1" style="width: 10%;border-right: 1px solid lightgrey;padding: inherit; min-height: inherit;">
+            <h4 align="center" style="color: black; margin-top: 19px">Approvals</h4>
+        </div>
+    </a>
+
+    <a ui-sref="popular" style="min-height: inherit">
+        <div class="col-xs-1" style="width: 10%;border-right: 1px solid lightgrey;padding: inherit; min-height: inherit;">
+            <h4 align="center" style="color: black; margin-top: 19px">Trending</h4>
+        </div>
+    </a>
+
+    <a ui-sref="traffic" style="min-height: inherit">
+        <div class="col-xs-1" style="width: 10%;border-right: 1px solid lightgrey;padding: inherit; min-height: inherit;">
+            <h4 align="center" style="color: black; margin-top: 19px">Traffic</h4>
+        </div>
+    </a>
+
+    <a ui-sref="hosts" style="min-height: inherit">
+        <div class="col-xs-1" style="width: 10%;border-right: 1px solid lightgrey;padding: inherit; min-height: inherit;">
+            <h4 align="center" style="color: black; margin-top: 19px">Top Hosts</h4>
+        </div>
+    </a>
+
+    <a ui-sref="reviews" style="min-height: inherit">
+        <div class="col-xs-1" style="width: 10%;border-right: 1px solid lightgrey;padding: inherit; min-height: inherit;">
+            <h4 align="center" style="color: black; margin-top: 19px">Reviews</h4>
+        </div>
+    </a>
+
+    <a ui-sref="performance" style="min-height: inherit">
+        <div class="col-xs-1" style="width: 10%;border-right: 1px solid lightgrey;padding: inherit; min-height: inherit;">
+            <h4 align="center" style="color: black; margin-top: 19px">Performance</h4>
+        </div>
+    </a>
+
+    <a ui-sref="help" style="min-height: inherit">
+        <div class="col-xs-1 col-lg-offset-2" style="width: 10%;border-left: 1px solid lightgrey;border-right: 1px solid lightgrey;padding: inherit; min-height: inherit;">
+            <h4 align="center" style="color: black; margin-top: 19px">Help</h4>
+        </div>
+    </a>
+
+
+        <div class="col-xs-1 " style="border-right: 1px solid lightgrey;padding: inherit; min-height: inherit;">
+            <div class="col-xs-6">
+                <h4 align="center" style="color: black; margin-top: 19px">Admin</h4>
+            </div>
+            <div class="col-xs-6">
+                <img src="me.jpg" style="max-height: 32px;max-width: 32px; margin-top: 10px; border-radius: 50%;">
+            </div>
+        </div>
+</nav>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-8">
+  <form class="form-horizontal" role="form">
+    <fieldset>
+      <h3>Enter card details</h3>
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="card-holder-name">Name on Card</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" ng-model="name" placeholder="Card Holder's Name" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="card-number">Card Number</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" ng-model="number" name="card-number" id="card-number" placeholder="Debit/Credit Card Number" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="expiry-month">Expiration Date</label>
+        <div class="col-sm-4">
+          <!-- <div class="row"> -->
+            <div class="col-xs-6">
+            <input type="number" class="form-control" ng-model="month" name ="month" min="1" max ="12" ng-model="month" placeholder="mm" required>
+              <!-- <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
+                <option>Month</option>
+                <option value="01">Jan (01)</option>
+                <option value="02">Feb (02)</option>
+                <option value="03">Mar (03)</option>
+                <option value="04">Apr (04)</option>
+                <option value="05">May (05)</option>
+                <option value="06">June (06)</option>
+                <option value="07">July (07)</option>
+                <option value="08">Aug (08)</option>
+                <option value="09">Sep (09)</option>
+                <option value="10">Oct (10)</option>
+                <option value="11">Nov (11)</option>
+                <option value="12">Dec (12)</option>
+              </select> -->
+            </div>
+            <div class="col-xs-6">
+            <input type="number" class="form-control" ng-model="year" name ="year" min="2016" max ="9999" ng-model="year" placeholder="yyyy" required>
+              <!-- <select class="form-control" name="expiry-year">
+                <option value="13">2013</option>
+                <option value="14">2014</option>
+                <option value="15">2015</option>
+                <option value="16">2016</option>
+                <option value="17">2017</option>
+                <option value="18">2018</option>
+                <option value="19">2019</option>
+                <option value="20">2020</option>
+                <option value="21">2021</option>
+                <option value="22">2022</option>
+                <option value="23">2023</option>
+              </select> -->
+            </div>
+          </div>
+        <!-- </div> -->
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="cvv">Card CVV</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="cvv" ng-model="cvv" id="cvv" placeholder="Security Code" required> 
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <button type="button" class="btn btn-success" ng-click="submit()">Pay Now</button>
+          <button type="button" class="btn btn-success" ng-click="add()">Add card</button>
+        </div>
+      </div>
+      
+    </fieldset>
+  </form>
+  </div>
+<div class="col-md-4 ">
+<div class="col-md-87">
+            <!-- <div class="col-md-6">
+                <p style="font-weight: 100; font-size: 15px !important;;    line-height: 18px !important; color:#767676; margin-top: 5px" align="left"> San Jose, CA, USA </p>
+            </div>
+            <div class="col-md-6">
+                <p style="font-weight: 100; font-size: 15px !important;;    line-height: 18px !important; color:#767676; margin-top: 5px" align="left"> 27 Reviews </p>
+            </div>
+        </div> -->
+  <div class="col-md-12" style="margin-top: -1px; margin-left: -15px">
+                    <form>
+                        <div class="panel panel-default" style=" padding: 6px 20px;  width: 350px;">
+                            <div class="panel-body" style="font-weight:bold; margin-left: -20px;  width: 350px;">
+
+                                <div class="row">
+                                    <div class="col-md-9">
+
+                                        <div class="col-md-6">
+                                            Check In
+                                            <input type="text" style="width: 120%" class="form-control" value="09/12/16">
+                                        </div>
+                                        <div class="col-md-6">
+                                            Checkout
+                                            <input type="text" style="width: 120%" class="form-control" value="09/12/16">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        Guests
+                                        <input type="text" class="form-control" value="4">
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-top: 30px">
+                                    <div class="col-md-12">
+                                        <table class="table">
+                                            <tbody>
+                                            <tr>
+                                                <td style="font-weight: bold">&nbsp;&nbsp;$54 x 2 nights</td>
+                                                <td style="font-weight: bold"></td>
+                                                <td style="font-weight: bold">$107</td>
+                                            </tr>
+                                            <tr>
+
+                                                <td style="font-weight: bold">&nbsp;&nbsp; Cleaning fee</td>
+                                                <td style="font-weight: bold"></td>
+                                                <td style="font-weight: bold">$16</td>
+                                            </tr>
+                                            <tr>
+
+                                                <td style="font-weight: bold">&nbsp;&nbsp; Service Fee</td>
+                                                <td style="font-weight: bold"></td>
+                                                <td style="font-weight: bold">$15</td>
+                                            </tr>
+                                            <tr>
+
+                                                <td style="font-weight: bold">&nbsp;&nbsp; Total</td>
+                                                <td style="font-weight: bold"></td>
+                                                <td style="font-weight: bold">$138</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button class="btn btn-lg btn-block" style="background-color: #ff5a5f"> <label style="color: white">Request to Book</label> </button>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-top: 20px">
+                                    <div class="col-md-12">
+                                        <p style="font-weight: 100; font-size: 0.85em; color:#767676;" align="center"> You wont be charged yet </p>
+
+                                        <hr style="margin-top: 20px; border-width: 2px">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p align="left" style="color: #484848"> This home is on people's minds.</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p style="font-weight: 100; color: #484848;font-size: 14px;line-height: 1.43;font-family: Circular,"Helvetica Neue"Helvetica,Arial,sans-serif;">It’s been viewed 87003 times in the past week.</p>
+                                    </div>
+
+                                    <div class="col-md-2 col-md-offset-1" >
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAkCAYAAAB15jFqAAAEO0lEQVR4Ad2Xa2gcVRSAR3ygoKD4RxERRUF%2FiQ8U8SEoKPrHB4b6sOIPjSA%2B8I8FC3V92LC7c%2B%2Fuzu7szmzaNC4YYq2tLdhUbTTYtNEUYmtt2MRIN4bmvWm6u9HsJpnjOZO56665m9kOyR8vHJaZe%2B797jlzzrlnFQ%2FjPImsz4iYamPU5KVokoNMtCRLrjlUM9keOVBA%2Bfj%2FBcpTAiAX9runjZnOrsXFByKG%2BuZ%2F56LR4PURk%2FnLlplqAA8y6lj5eTQRuHdFHBjsYZz7UYsH7pcCeYJfgy4cok3IlTIdv99%2FmYBG4uodqHdiWT%2FwiEw%2FaqrvOkFWwEC8r2oyZH5yNZ568F9XqY9VHcjw36kl1Y%2Fw1MdrfM8R9I4eTqiPNjQ0nF%2B9L%2FvLAedCRvCeinTg3LFwwd7I5NOawW4NmYHb8TDfVUHcpT9iBJ%2FYGtt6Je53TOzrgHvKUC3BbosaPBwxAjehQpdwCf5aKBBrDlm79rVD3%2FGjMD4xCvlCDhYXF6Awl4eJqXE40X8M9u7%2FEvRt4cq8zS0bwP5EN99se8pQn1ZkI6AHrkLr5sXifR27YTo7CQCWq%2BTys%2FDtDx32Icvf3mCPK6uNRrPxQgR%2BQ8qJFs1KD%2FbLAS4ycnoYkp%2FqTpTzU2RITSi6oYUUzVbdQjd6AgqZPTsDrW3NDpj1%2BXy%2Bi1cCE8GHxPc7NfyHZ1ilTE1PgLEjarsac3xzFZDCXOTckd5DniFzP%2FfClKbDYj5ffncy%2FatIqwLVggq3sgaaaE4loFic9wQsHOqGzLMvQmbDC%2FB3Ol1%2Bb1lL0LYrZYMpNSuhO%2Bnl0V9%2B8gY8fKQMzLamVswPDqVBpI99%2F3LOL3FyEmbOZOuCzA8NQa7ze5gfGIBC92HIPLdxGdjSKtUvlYoQ3x6xwWEzeDcWBn4XPaTat7vCrKVFmNRiBFgh09taVl1LxcN2cVJ9W4kk%2BFP4QC9doWe%2F3i8Fnt70Hn27Vdd2dXcuu9hgQbon36CHg10HXKFj738ohQ6%2F%2FAp5YdW1vX09ojy2UUF4p17o6OYtUmjm%2BZfAWijVBaWgVdDcDfW698zOL6TQ8Y%2BbaL5O9%2FKwEjbUB%2BoOJMzhsS0fVAFHXn8LSmNjQsc1kDSDbbK7AfRzsd6UoW9X6OmBmbZ2yB3shKW5Obc1ImVEZXpQoUF9kXtx8C6iOKBx2XJngQ%2BvSsugd5GWQbrFFDHw2rkIrc24FHxPQgVftCxc5zdWt4tJdeN6XG3YDAhoXPrHCHNoLykYO2Kwlpc4NeJN8aYrlFp9LZ7oJClStK1Ju5LkuZDuv8W1yxf9rcfGrLIfnhJNtuvw6b5LccFXlf1srRZ0styC7hYtqJDfQvGmG5RzHM4NxAbqbLKFdVmq55QRiteBiy%2FQDPUZDLLPUGblIFbEWOhAeS0U8l3uEVX7AGpMvY7%2Bk6A1T1JJo38F1H2cyz7%2FAD5Q5RoUYbDyAAAAAElFTkSuQmCC">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+</div>
+  </div>
+</div>
+  </div>
+</body>
+</html>
+
+<!-- <body ng-app="guestModule" ng-controller="propertyController">
+ 
+     <div style="width:900px;">Card number : <input type="text" name ="number" ng-model="number" placeholder="Enter card number"></div><br>
+    
+     <div style="width:900px;">Expiration Date : <input type="number" name ="month" min="1" max ="12" ng-model="month" placeholder="mm"><input type="number" name ="year" min="2016" max ="9999" ng-model="year" placeholder="yyyy"> </div><br>
+     <div style="width:900px;">CVV : <input type="password" name ="cvv" ng-model="cvv" placeholder="Enter cvv"></div><br>
+     <div style="width:900px;"><input type="button" value="Pay now" ng-click="submit()"> <input type="button" value="Add card" ng-click="add()"></div>
+
+  </body> -->

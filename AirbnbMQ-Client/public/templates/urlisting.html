@@ -1,0 +1,50 @@
+<br>
+<div class="container">
+    <div class="row" ng-controller="listingcontroller">
+
+        <div class="panel panel-default panel-table">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col col-xs-8">
+                        <h3 class="panel-title">Your Listing</h3>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="panel-body">
+                <h5 ng-model="nothost" ng-hide="nothost">You are not a host yet!!</h5>
+                <table class="table table-striped table-bordered table-list" ng-hide="host" ng-model="host">
+                    <thead>
+                    <tr>
+                        <th class="hidden-xs">Property Details</th>
+                        <!--th>Host Details</th-->
+                        <th>Property Address</th>
+                        <th>Pricing and Bidding</th>
+                        <!--th>Transaction Details</th-->
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr ng-repeat="x in listing track by $index">   <!--NG-REPEAT-->
+                        <td>Property id:{{x.property_id}} <br> Property :<br>{{x.title}}<br>{{x.description}}<br> Property Category: {{x.category_name}} <br> Bathrooms : {{x.bathrooms}}
+                            <br> Bedrooms: {{x.bedrooms}}<br> Capacity: {{x.capacity}}<br> Available from : {{x.available_from}}<br> Avaiable Till:{{x.available_to}}</td>
+
+                        <td>Property Address : <br> {{x.line1}} {{x.line2}} <br>{{x.city}},{{x.state}}<br>{{x.country}}-{{x.zipcode}}</td>
+                        <td> Price : {{x.price}}<br> Bidding Yes(1)/No(0): {{x.is_bidding}} <br></td>
+
+                        <td><br><input type="submit" class="btn btn-warning" value="Edit Listing" ng-click="editlisting(x.property_id)"/> <br>
+                            <br><input type="submit" class="btn btn-danger" value="Delete Listing" ng-click="deletelisting(x.property_id)"/>
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+        </div>
+    </div>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+    <script src="angularjs/guest.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <script src="angularjs/homepage.js"></script>
+
+</head>
+<body ng-app="guestModule" ng-controller="propertyController" ng-init="loadproperty()">
+<div ui-view="nonuser" ng-hide="value1" ></div>
+
+<div ui-view="user" ng-hide="value2"></div>
+
+<!-- <div ui-view="nonuser" ng-hide="value1"></div> -->
+
+<!-- <div ui-view="user" ng-hide="value2"></div> -->
+
+<!-- <div ui-view="home_content"></div> -->
+
+<!-- <div ui-view="navbar"></div>
+<div ui-view="content"></div> -->
+
+<div class="container-fluid">
+
+    <div class="row" >
+        <div style="background: url('./images/home1.jpg') 50% 50% no-repeat; /* 50% 50% centers image in div */width: 102%; height: 450px; margin-left:-15px;margin-top: -20px; position: relative;-webkit-background-size: cover;">
+            <div class="col-md-2" style="margin-left: 20px" >
+                <button class="btn" style="margin-top: 175%; background-color:white; height: 40px;width:140px;font-weight: bold;">View Photos</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-8" style="margin-top: 32px">
+        <div class="col-md-7 col-md-offset-2">
+            <span style="font-weight: bold !important;
+            color: #484848 !important;
+            font-family: Circular,'Helvetica Neue',Helvetica,Arial,sans-serif; !important;
+            margin: 0px !important;
+            word-wrap: break-word !important;
+            font-size: 40px !important;
+            line-height: 44px !important;
+            letter-spacing: -0.6px !important;">
+
+                Charming gardenroom with woodstove
+
+            </span>
+        </div>
+
+        <div class="col-md-2 col-md-offset-1" >
+            <div class="row">
+                <img src="me.jpg" style="max-height: 72px;max-width: 72px; margin-top: 10px; border-radius: 50%;">
+            </div>
+            <div class="row">
+                <p style="font-weight: 100; font-size: 15px !important;;    line-height: 18px !important; color:#767676; margin-left: -10px; margin-top: 5px" align="left"> Vivek Agarwal </p>
+            </div>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-6">
+                <p style="font-weight: 100; font-size: 15px !important;;    line-height: 18px !important; color:#767676; margin-top: 5px" align="left"> San Jose, CA, USA </p>
+            </div>
+            <div class="col-md-6">
+                <p style="font-weight: 100; font-size: 15px !important;;    line-height: 18px !important; color:#767676; margin-top: 5px" align="left"> 27 Reviews </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="position: absolute;margin-top: 200px;margin-left: 180px;width:770px;border-top:1px solid lightgrey;padding:10px">
+        <div class="col-md-4"><img src="./images/home.png" alt="home"  width="50px" height="50px" style="margin-left: 80px"></div>
+        <div class="col-md-4"><img src="./images/guests.jpg" alt="guests"  width="50px" height="50px" style="margin-left: 80px"></div>
+        <div class="col-md-4"><img src="./images/bedroom.png" alt="bedroom"  width="50px" height="50px" style="margin-left: 80px"></div>
+    </div>
+    <div class="row" style="position: absolute;margin-top: 250px;margin-left: 180px;width:770px;border-bottom: 1px solid lightgrey;padding:10px" >
+        <!-- <label style="border-radius:1px !important; border-color:lightgrey !important;background-color: #edefed !important;"></label> -->
+        <div class="col-md-4"><span style="margin-left: 80px">{{random2}}</span></div>
+        <div class="col-md-4"><span style="margin-left: 80px">{{random1}} Guests</span></div>
+        <div class="col-md-4"><span style="margin-left: 80px" >{{random}} Bedrooms</span></div>
+
+    </div>
+    <div class="row" style="position: absolute;margin-top: 300px;margin-left: 180px;width:770px; ">
+        <div class="col-md-7">
+            <div style="">
+                <h2>Description</h2>
+                <h4>Not so good. Dont come here you idiot.</h4>
+                <h4>Not so good. Dont come here you idiot.</h4>
+                <h4>Not so good. Dont come here you idiot.</h4>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-1" style="width:0%">
+        <div class="row">
+
+            <div class="col-md-4 col-md-offset-8">
+                <div class="col-md-12" style="background-color: rgba(60,63,64,0.9);margin-top: -47px; max-height: 47px; padding: 6px 20px;padding-right: 20px;padding-bottom: 6px;padding-left: 20px;  width: 350px;">
+                    <div class="col-md-2">
+                        <h4 style="font-weight: bold;color: white;">$54</h4>
+                    </div>
+                    <div class="col-md-4 col-md-offset-6">
+                        <p style="color: white; padding-top: 10px" >Per Night</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-md-offset-8">
+                <div class="col-md-12" style="margin-top: -1px; margin-left: -15px">
+                    <form>
+                        <div class="panel panel-default" style=" padding: 6px 20px;  width: 350px;">
+                            <div class="panel-body" style="font-weight:bold; margin-left: -20px;  width: 350px;">
+
+
+
+                                <div class="row">
+                                    <div class="col-md-9">
+
+                                        <div class="col-md-6">
+                                            Check In
+                                            <input type="text" style="width: 120%" class="form-control" placeholder="Check in" ng-model="checkin" >
+                                        </div>
+                                        <div class="col-md-6">
+                                            Checkout
+                                            <input type="text" style="width: 120%" class="form-control" placeholder="Check out" ng-model="checkout">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        Guests
+                                        <input type="text" class="form-control" placeholder="1" ng-model="guests" >
+                                    </div>
+                                </div>
+
+
+                                <div class="row" style="margin-top: 30px">
+                                    <div class="col-md-12">
+                                        <table class="table">
+                                            <tbody>
+                                            <tr>
+                                                <td style="font-weight: bold">&nbsp;&nbsp;$54 x 2 nights</td>
+                                                <td style="font-weight: bold"></td>
+                                                <td style="font-weight: bold">$107</td>
+                                            </tr>
+                                            <tr>
+
+                                                <td style="font-weight: bold">&nbsp;&nbsp; Cleaning fee</td>
+                                                <td style="font-weight: bold"></td>
+                                                <td style="font-weight: bold">$16</td>
+                                            </tr>
+                                            <tr>
+
+                                                <td style="font-weight: bold">&nbsp;&nbsp; Service Fee</td>
+                                                <td style="font-weight: bold"></td>
+                                                <td style="font-weight: bold">$15</td>
+                                            </tr>
+                                            <tr>
+
+                                                <td style="font-weight: bold">&nbsp;&nbsp; Total</td>
+                                                <td style="font-weight: bold"></td>
+                                                <td style="font-weight: bold">$138</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="button" class="btn btn-lg btn-block" style="background-color: #ff5a5f" value="Request to Book" ng-show="buy_section" ng-click="request()">
+                                        <div ng-show="bid_section">
+                                            <input type="text" class="form-control" placeholder="Enter your bid" style="width: 140px !important" ng-model="bid">
+                                            <br>
+                                            Higher than: <span ng-bind="highest"></span>
+                                            <br><br>
+                                            <input type="button" class="btn btn-lg btn-block" style="background-color: #ff5a5f" value="Make a bid"  ng-click="make_bid()">
+
+                                            <div><center>
+                                                    <h3>TOP BIDS</h3>
+                                                    <table border="1">
+                                                        <tr>
+                                                            <td>Bidder Name</td>
+                                                            <td>Bid Price</td>
+                                                        </tr>
+                                                        <tr  ng-repeat="y in bids">
+                                                            <td>
+                                                                {{y.fname}}&nbsp;{{y.lname}}&nbsp;&nbsp;
+                                                            </td>
+                                                            <td>
+                                                                {{y.bid_price}}
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                            </div>
+                                        </div></center>
+
+
+                                        <!-- <button class="btn btn-lg btn-block" ng-click="payment()" style="background-color: #ff5a5f"> <label style="color: white">Request to Book</label> </button> -->
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-top: 20px">
+                                    <div class="col-md-12">
+                                        <p style="font-weight: 100; font-size: 0.85em; color:#767676;" align="center"> You wont be charged yet </p>
+
+                                        <hr style="margin-top: 20px; border-width: 2px">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p align="left" style="color: #484848"> This home is on people's minds.</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p style="font-weight: 100; color: #484848;font-size: 14px;line-height: 1.43;font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;">It’s been viewed 87003 times in the past week.</p>
+                                    </div>
+
+                                    <div class="col-md-2 col-md-offset-1" >
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAkCAYAAAB15jFqAAAEO0lEQVR4Ad2Xa2gcVRSAR3ygoKD4RxERRUF%2FiQ8U8SEoKPrHB4b6sOIPjSA%2B8I8FC3V92LC7c%2B%2Fuzu7szmzaNC4YYq2tLdhUbTTYtNEUYmtt2MRIN4bmvWm6u9HsJpnjOZO56665m9kOyR8vHJaZe%2B797jlzzrlnFQ%2FjPImsz4iYamPU5KVokoNMtCRLrjlUM9keOVBA%2Bfj%2FBcpTAiAX9runjZnOrsXFByKG%2BuZ%2F56LR4PURk%2FnLlplqAA8y6lj5eTQRuHdFHBjsYZz7UYsH7pcCeYJfgy4cok3IlTIdv99%2FmYBG4uodqHdiWT%2FwiEw%2FaqrvOkFWwEC8r2oyZH5yNZ568F9XqY9VHcjw36kl1Y%2Fw1MdrfM8R9I4eTqiPNjQ0nF%2B9L%2FvLAedCRvCeinTg3LFwwd7I5NOawW4NmYHb8TDfVUHcpT9iBJ%2FYGtt6Je53TOzrgHvKUC3BbosaPBwxAjehQpdwCf5aKBBrDlm79rVD3%2FGjMD4xCvlCDhYXF6Awl4eJqXE40X8M9u7%2FEvRt4cq8zS0bwP5EN99se8pQn1ZkI6AHrkLr5sXifR27YTo7CQCWq%2BTys%2FDtDx32Icvf3mCPK6uNRrPxQgR%2BQ8qJFs1KD%2FbLAS4ycnoYkp%2FqTpTzU2RITSi6oYUUzVbdQjd6AgqZPTsDrW3NDpj1%2BXy%2Bi1cCE8GHxPc7NfyHZ1ilTE1PgLEjarsac3xzFZDCXOTckd5DniFzP%2FfClKbDYj5ffncy%2FatIqwLVggq3sgaaaE4loFic9wQsHOqGzLMvQmbDC%2FB3Ol1%2Bb1lL0LYrZYMpNSuhO%2Bnl0V9%2B8gY8fKQMzLamVswPDqVBpI99%2F3LOL3FyEmbOZOuCzA8NQa7ze5gfGIBC92HIPLdxGdjSKtUvlYoQ3x6xwWEzeDcWBn4XPaTat7vCrKVFmNRiBFgh09taVl1LxcN2cVJ9W4kk%2BFP4QC9doWe%2F3i8Fnt70Hn27Vdd2dXcuu9hgQbon36CHg10HXKFj738ohQ6%2F%2FAp5YdW1vX09ojy2UUF4p17o6OYtUmjm%2BZfAWijVBaWgVdDcDfW698zOL6TQ8Y%2BbaL5O9%2FKwEjbUB%2BoOJMzhsS0fVAFHXn8LSmNjQsc1kDSDbbK7AfRzsd6UoW9X6OmBmbZ2yB3shKW5Obc1ImVEZXpQoUF9kXtx8C6iOKBx2XJngQ%2BvSsugd5GWQbrFFDHw2rkIrc24FHxPQgVftCxc5zdWt4tJdeN6XG3YDAhoXPrHCHNoLykYO2Kwlpc4NeJN8aYrlFp9LZ7oJClStK1Ju5LkuZDuv8W1yxf9rcfGrLIfnhJNtuvw6b5LccFXlf1srRZ0styC7hYtqJDfQvGmG5RzHM4NxAbqbLKFdVmq55QRiteBiy%2FQDPUZDLLPUGblIFbEWOhAeS0U8l3uEVX7AGpMvY7%2Bk6A1T1JJo38F1H2cyz7%2FAD5Q5RoUYbDyAAAAAElFTkSuQmCC">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row" style="margin-right: 550px;margin-left: 200px;border-top:1px solid lightgrey;padding:10px">
+        <h2>Reviews</h2>
+        <div ng-repeat="z in reviews">
+            <div class="col-md-2"><img src="me.jpg" style="max-height: 72px;max-width: 72px; margin-top: 10px; border-radius: 50%;"></div>
+            <div class="col-md-8">
+                <h2>{{z.user_name}}</h2>
+                <p>{{z.review_content}}</p>
+            </div>
+            <div class="col-md-2">
+                <h3>Rating:{{z.rating}}</h3>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

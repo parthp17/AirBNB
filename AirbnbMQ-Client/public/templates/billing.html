@@ -1,0 +1,133 @@
+
+
+<div class="container">
+    <div class="row" ng-controller="billingcontroller">
+
+
+        <br>
+        <div class="col-md-11 col-md-offset-1">
+
+            <div class="panel panel-default panel-table">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-xs-8">
+                            <h3 class="panel-title">Billing on Trips</h3>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <h5 ng-model="notrip" ng-hide="notrip">No Trips Yet</h5>
+                    <table class="table table-striped table-bordered table-list" ng-model="usertrip" ng-hide="usertrip">
+                        <thead>
+                        <tr>
+                            <th class="hidden-xs">Property</th>
+                            <!--th>Host Details</th-->
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Transaction Details</th>
+                            <th>Approval</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr ng-repeat="x in trips track by $index">
+                            <!--NG-REPEAT-->
+                            <td>{{x.title}} {{x.description}}<br> {{x.category_name}} <br> property id:</br><i>{{x.property_id}}</i><h5>Host name :</h5> <i>{{x.fname}} {{x.lname}}<br></i><h5>Host Id :</h5> <i>{{x.host_id}}<br></i> </td>
+
+                            <td>{{x.start_date}}</td>
+                            <td> {{x.end_date}}</td>
+                            <td>Cost: {{x.total_price}} <br> Transaction Id: {{x.transaction_id}} <br> Transaction Date:{{x.transaction_date}}</td>
+                            <td><input type="submit" class="btn btn-success" value="Generate Bill" ng-click="gentripbill(x.host_id,x.total_price,x.property_id,x.start_date,x.end_date,x.transaction_id,x.transaction_date)"/> <br/>
+                               <br> <input type="submit" class="btn btn-primary" value="Review Host" data-toggle="modal" data-target="#review" ng-click="params1(x.host_id,x.property_id,x.transaction_id,x.title)">
+
+
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            </div>
+
+        <br>
+        <div class="col-md-11 col-md-offset-1">
+
+            <div class="panel panel-default panel-table">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-xs-8">
+                            <h3 class="panel-title">Revenue</h3>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <h5 ng-hide="norevenue" ng-model="norevenue">No revenue through property listing yet!!</h5>
+                    <table class="table table-striped table-bordered table-list" ng-hide="userrevenue" ng-model="userrevenue">
+                        <thead>
+                        <tr>
+                            <th class="hidden-xs">Property</th>
+                            <!--th>Customer Details</th-->
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Transaction Details</th>
+                            <th>Approval</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr ng-repeat="x in revenue track by $index">   <!--NG-REPEAT-->
+                            <td>{{x.title}} {{x.description}}<br> {{x.category_name}} <br> property id:</br><i>{{x.property_id}}</i><h5>Customer name :</h5> <i>{{x.fname}} {{x.lname}}<br></i><h5>Customer Id :</h5> <i>{{x.user_id}}<br></i> </td>
+
+                            <td>{{x.start_date}}</td>
+                            <td> {{x.end_date}}</td>
+                            <td>Cost: {{x.total_price}} <br> Booking Id: {{x.booking_id}}<br> Transaction Id: {{x.transaction_id}}<br> </td>
+                            <td><input type="submit" class="btn btn-success" value="Generate Revenue Receipt" ng-click="genrevbill(x.user_id,x.total_price,x.property_id,x.start_date,x.end_date,x.transaction_id,x.transaction_date)"/> <br/>
+                                <br> <input type="submit" class="btn btn-primary" value="Review User" data-toggle="modal" data-target="#review" ng-click="params2(x.user_id,x.property_id,x.booking_id,x.transaction_id)">
+
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal fade" id="review" role="dialog">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Review Section</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <textarea rows="4" cols="50" name="comment" placeholder="Enter review here..."  ng-model="userreview"></textarea><br><br>
+                        <h5>Enter the Host Rating(0 to 5)
+                            <input type="number" name="rating" min="0" max="5" ng-model="userratings"><br></h5>
+                        <br>
+
+                        <h5 ng-model="propertyreview" ng-hide="propertyreview">Hosted Property Image for Review<input type="file" name="Image" value="imageupload" id="imageupload" ngf-accept="'image/*'" ngf-select ng-model="image1" />
+                        </h5>
+                    </div>
+                    <div class="modal-footer">
+
+                        <input type="submit" class="btn btn-default" data-dismiss="modal" ng-click="reviewbyuser(image1,userreview,userratings)" ng-model="submituser" ng-hide="submituser">
+                        <input type="submit" class="btn btn-default" data-dismiss="modal" ng-click="reviewbyhost(userreview,userratings)" ng-model="submithost" ng-hide="submithost">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        </div>
+    </div>

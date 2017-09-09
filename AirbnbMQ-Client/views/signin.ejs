@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Login</title>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+</head>
+<body>
+	<div ng-app="firstAngulatApp" ng-controller="personController"
+		class="panel panel-primary">
+		<!-- Default panel contents -->
+		<div class="panel-heading">Login</div>
+		<div class="panel-body">
+			<form class="form-horizontal" role="form">
+				<div class="form-group  usernameDiv">
+					<label class="inputUsername"
+						class="col-sm-2 control-label pull-left">Enter your Email
+						id</label>+
+					<div class="col-sm-10">
+						<input type="email" ng-model="inputUsername" class="form-control"
+							name="inputUsername" id="inputUsername" placeholder="Email Id">
+					</div>
+				</div>
+				<div class="form-group  usernameDiv">
+					<label for="inputPassword">Password</label>
+					<div class="col-sm-10">
+						<input type="password" ng-model="inputPassword"
+							class="form-control" name="inputPassword" id="inputPassword"
+							placeholder="Password">
+					</div>
+				</div>
+
+				<h1> some change </h1>
+
+				<h4> Even I am changing something</h4>
+
+			    <h4> I am changing something again</h4>
+
+
+			    <h5> new change </h5>
+
+                <h4> fourth change </h4>
+            <h2>Github exportrtr</h2>
+
+				<div class="form-group ">
+					<div class="pull-left signIn">
+						<button ng-click="signIn()" class="btn btn-primary">Sign
+							in</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+	<script>
+	
+	angular.module('firstAngulatApp',[])
+	
+	function personController($scope,$http,$location) {
+		
+	    $scope.var1 = "abcd";
+		$scope.signIn = function() {
+			$http({
+	            method: 'POST',
+	            url: '/signin',
+	            data: { "username": $scope.inputUsername, "password": $scope.inputPassword }
+	            
+	         }).success(function(response){
+	           
+	            alert(JSON.stringify(response));
+	            
+	            if(response.login == "Success")
+	           		window.location = '/success_login';
+	            else
+	            	window.location = '/fail_login';
+	        }).error(function(error){
+	            alert("error");
+	        });
+	    };
+	}
+	</script>
+</body>
+</html>

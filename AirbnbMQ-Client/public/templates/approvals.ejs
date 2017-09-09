@@ -1,0 +1,46 @@
+<div ng-controller="ApprovalsController" >
+    <div class="row">
+        <div class="col-md-6"  ng-repeat="host in hosts track by $index">
+
+            <md-card>
+                <div class="row">
+                    <md-card-header>
+                        <div class="col-md-2">
+                            <md-card-avatar>
+                                <img class="md-user-avatar" src="quinn.jpg" style="width:80px;height: 80px;">
+                            </md-card-avatar>
+                        </div>
+                        <div class="col-md-10">
+                            <md-card-header-text>
+                                <div class="row">
+                                    <span class="md-title"><h4>{{host.fname}} {{host.lname}}</h4></span>
+                                </div>
+                                <div class="row">
+                                    <span class="md-subhead">{{host.email}}</span>
+                                </div>
+
+                            </md-card-header-text>
+                        </div>
+
+                    </md-card-header>
+                </div>
+
+
+                <md-card-actions layout="row" layout-align="start center">
+                    <md-button  ng-click="approve(host.host_id, $index);"  >Approve</md-button>
+                    <md-button  ng-click="disapprove(host.host_id, $index);" >Disapprove</md-button>
+                </md-card-actions>
+                <md-card-content>
+                    <h4> Address :</h4> <p>{{host.address_line1}}
+                        {{host.address_liine2}}
+                        {{host.city}}, {{host.zipcode}}
+                        {{host.country}}</p>
+
+                </md-card-content>
+            </md-card>
+
+        </div>
+
+
+    </div>
+</div>

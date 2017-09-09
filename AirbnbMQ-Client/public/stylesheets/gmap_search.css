@@ -1,0 +1,10 @@
+
+.price_marker {
+    color: white;
+    font-weight: bold;
+    font-family: "Lucida Grande", "Arial", sans-serif;
+    font-size: 12px;
+    text-align: center;
+    width: 30px;
+    white-space: nowrap;
+}

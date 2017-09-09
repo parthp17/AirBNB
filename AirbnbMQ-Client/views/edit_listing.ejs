@@ -1,0 +1,378 @@
+<html>
+<head><title>Create Listing</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="ng-file-upload-shim.min.js"></script>
+    <script src="ng-file-upload.min.js"></script>
+
+
+
+</head>
+<style>
+    @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700);
+    @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
+
+    body {
+        background: #fff;
+        font-family: 'Roboto', sans-serif;
+        color:#333;
+        line-height: 22px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 400;
+        color:#111;
+        margin-top:5px;
+        margin-bottom:5px;
+    }
+    h1, h2, h3 {
+        text-transform:uppercase;
+    }
+
+    input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+        cursor: pointer;
+        opacity: 1;
+        filter: alpha(opacity=1);
+    }
+
+    .form-inline .form-group{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .control-label {
+        color:#333333;
+    }
+
+
+</style>
+<body>
+<div class="container" ng-app="myapp" ng-controller="addpropertycontroller">
+
+    <div class="row">
+        <div class="col-md-8">
+            <section>
+                <h1 class="entry-title"><span>Edit Listing</span> </h1>
+                <hr>
+                <form class="form-horizontal" enctype="multipart/form-data" ng-submit="editproperty()">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="textinput">Title</label>
+                        <div class="col-sm-7">
+                            <input type="text"  placeholder="Title" class="form-control" ng-model="title" required autofocus>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="textinput">Description</label>
+                        <div class="col-sm-7">
+                            <input type="text" placeholder="Description" class="form-control" ng-model="description" required autofocus>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="textinput">Category Type</label>
+                        <div class="col-sm-3">
+
+
+                            <!--input type="text" placeholder="Category" class="form-control"-->
+                            <select ng-model="category" autofocus required >
+                                <option value="Apartment" selected>Home</option>
+                                <option value="Home">Apartment</option>
+                                <option value="Castle">Castle</option>
+                                <option value="Villa">Villa</option>
+                            </select>
+
+
+                        </div>
+
+
+                        <label class="col-sm-1 control-label" for="textinput">Price</label>
+                        <div class="col-sm-3">
+                            <input type="numbers" placeholder="Price in USD" class="form-control" ng-model="price" required autofocus >
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="form-group">
+
+                        <label class="col-sm-2 control-label" for="textinput">Bathrooms</label>
+                        <div class="col-sm-2">
+                            <input type="text"  placeholder="Bathrooms" class="form-control" autofocus required ng-model="bathrooms">
+                        </div>
+                        <label class="col-sm-2 control-label" for="textinput">Capacity</label>
+                        <div class="col-sm-2">
+                            <input type="text" placeholder="Capacity" class="form-control" autofocus required ng-model="capacity">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label class="col-sm-2 control-label" for="textinput">Bedrooms</label>
+                        <div class="col-sm-2">
+                            <input type="text"  placeholder="Bedrooms" class="form-control" ng-model="bedrooms" required autofocus>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="textinput">Bidding {{bidding.value1}}</label>
+                        <div class="col-sm-1">
+                            <input type="checkbox" placeholder="Title" class="form-control" ng-model="bidding.value1" disabled autofocus>
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                    <br>
+                    <fieldset>
+
+                        <!-- Form Name -->
+                        <legend>Address Details</legend>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="textinput">Line 1</label>
+                            <div class="col-sm-7">
+                                <input type="text"  placeholder="Address Line 1" class="form-control" ng-model="line1" autofocus disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="textinput">Line 2</label>
+                            <div class="col-sm-7">
+                                <input type="text"  placeholder="Address Line 2" class="form-control" ng-model="line2" autofocus disabled>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="textinput" >City
+
+                               </label>
+                            <div class="col-sm-4">
+                                <input type="text"   placeholder="City" class="form-control" ng-model="city" autofocus disabled >
+
+                            </div>
+                            <label class="col-sm-2 control-label" for="textinput">State</label>
+                            <div class="col-sm-4">
+                                <input type="text" placeholder="State" class="form-control" ng-model="state"  disabled autofocus >
+                            </div>
+
+
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+
+                            <label class="col-sm-2 control-label" for="textinput">Zip code</label>
+                            <div class="col-sm-4">
+                                <input type="text" pattern="(^\d{5}$)|(^\d{5}-\d{4}$" placeholder="Post Code" class="form-control" ng-model="zipcode" disabled autofocus >
+                            </div>
+
+                            <label class="col-sm-2 control-label" for="textinput">Country</label>
+                            <div class="col-sm-4">
+                                <input type="text"  placeholder="Country" class="form-control" ng-model="country" disabled autofocus >
+                            </div>
+                        </div>
+
+                    </fieldset>
+                    <br>
+                    <legend>Availabilty <small style="color:red;font-size: 11">Mandatory</small></legend>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="textinput">From Date</label>
+                        <div class="col-sm-2">
+                            <input type="date"  name="from_date" ng-model="fromdate"  autofocus>
+                        </div>
+                        <label class="col-sm-2 control-label" for="textinput">To Date</label>
+                        <div class="col-sm-2">
+                            <input type="date"  name="to_date" ng-model="todate"  autofocus>
+                        </div>
+                    </div>
+
+
+                    <br>
+                    <legend>Property Images and Introductory Videos <small style="color:red;font-size: 11">Mandatory</small></legend>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="textinput">Image</label>
+                        <div class="col-sm-2">
+                            <input type="file" name="Image"  id="imageupload" ngf-accept="'image/*'" ngf-select ng-model="image" />
+
+                        </div>
+                        </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="textinput">Video</label>
+                        <div class="col-sm-2">
+                            <input type="file" name="Video"  id="videoupload" ngf-accept="'video/*'" ngf-select ng-model="video"/>
+                        </div>
+                    </div>
+
+
+                    <br>
+                    <legend></legend>
+
+
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-4 col-xs-10">
+                            <input name="Submit" type="button" value="Back" class="btn btn-primary" ng-click="back()"> &nbsp;
+                            <input name="Submit" type="submit" value="Edit Listing" class="btn btn-primary" >
+                        </div>
+                    </div>
+
+                </form>
+        </div><!-- /.col-lg-12 -->
+    </div><!-- /.row -->
+
+
+</div>
+
+
+</body>
+<script>
+    var app=angular.module('myapp',['ngFileUpload']);
+    app.controller('addpropertycontroller',['$scope','Upload',function($scope,Upload){
+
+        var property_id ="<%=property.property_id%>";
+        $scope.city="<%=property.city%>";
+        $scope.title="<%=property.title%>";
+        $scope.description="<%=property.description%>";
+        $scope.category="<%=property.category_name%>";
+        $scope.price="<%=property.price%>";
+        $scope.bathrooms="<%=property.bathrooms%>";
+        $scope.capacity="<%=property.capacity%>";
+        $scope.bedrooms="<%=property.bedrooms%>";
+
+        $scope.line1="<%=property.line1%>";
+        $scope.line2="<%=property.line2%>";
+        $scope.state="<%=property.state%>";
+        $scope.zipcode="<%=property.zipcode%>";
+        $scope.country="<%=property.country%>";
+        var sdate = "<%=property.available_from%>";
+        $scope.fromdate=new Date(sdate);
+        var tdate = "<%=property.available_to%>";
+        $scope.todate=new Date(tdate);
+
+
+       var is_bidding="<%=property.is_bidding%>";
+
+        if(is_bidding==0)
+        {
+            $scope.bidding = {
+                value1 : false,
+            };
+
+        }
+        else
+        {
+            $scope.bidding = {
+                value1 : true,
+            };
+        }
+
+        $scope.back=function()
+        {
+            window.location.assign("/userwindow");
+        };
+
+
+
+
+
+
+        $scope.editproperty=function() {
+
+
+            window.alert("inside ");
+            console.log($scope.image);
+            console.log($scope.todate);
+            var is_bidding=0;
+
+            if($scope.bidding.value1)
+            {
+                is_bidding=1;
+            }
+            //if ($scope.image && $scope.video) {
+                $scope.upload($scope.image, $scope.video);
+            //}
+        };
+
+
+
+        $scope.upload=function(image,video){
+
+            var files=[];
+            files.push(image);
+            files.push(video);
+
+            Upload.upload({
+                url:'/updateProperty',
+                data:{files:files,
+                    title:$scope.title,
+                    description:$scope.description,
+                    category_name:$scope.category,
+                    price:$scope.price,
+                    bathrooms:$scope.bathrooms,
+                    capacity:$scope.capacity,
+                    bedrooms:$scope.bedrooms,
+                    is_bidding:is_bidding,
+                    available_from:$scope.fromdate,
+                    available_to:$scope.todate,
+                    property_id:property_id
+                }
+            }).then(function(response){
+                if(response.data.statusCode==200)
+                {
+                    window.alert("Property Edited");
+                    window.location.assign("/homepage");
+                }
+                else
+                {
+                    window.alert("Property couldnt be added");
+                }
+            },function(err){
+                console.log(err);
+            });
+
+        };
+
+
+
+    }]);
+
+</script>
+
+</html>

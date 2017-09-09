@@ -1,0 +1,30 @@
+<nav class="container-fluid"  data-spy="affix" style="background-color:#FFFFFF;height:60px;border:1px solid #8C8C8C;">
+    <ul class="nav navbar-nav">
+        <li><a href="#" style="height:60px"><span style="color:#5C5C5C">
+<img src="http://craftedhire.com/assets/img/tmp/airbnb.png" alt="airbnb" width="32" height="30"></span></a></li>
+        <!--li><a href="#" style="height:60px"><span style="color:#5C5C5C;text-align:">Where to?</span></a></li-->
+        <li style="margin-left:230px" class="dropdown">
+            <a href="#" class="dropbtn" style="top:5px;margin-left:700px;width:50px"><span style="color:#1A1A1A"> Host  </span></a>
+
+            <div class="dropdown-content" style="top:55px;" ng-controller="hostdropdown">
+                <a href="#" ng-model="hosteditprofile" ng-click="editprofile()">Dashboard</a>
+                <!--a href="#">Manage Listings</a-->
+                <a href="#" ng-click="createlisting()">List Your Space</a>
+
+            </div>
+        </li>
+
+        <li style="margin-left:70px"  class="dropdown">
+            <a href="#" class="dropbtn"><img src="https://a2.muscache.com/defaults/user_pic-50x50.png?v=2" class="img-circle"  width="28" height="28" alt="user"></a>
+            <div class="dropdown-content" ng-controller="userdropdown">
+                <a> Hi {{user}} Welcome back!!</a>
+                <a href="#" ng-model="editprofile" ng-init="clickitem1='editprofile'" ng-click="editprofile()">Dashboard</a>
+                <!--a href="#" ng-model="account" ng-init="clickitem2='account'" ng-click="userprofile()">Account</a-->
+                <a href="#" ng-click="logout()">Log out</a>
+
+            </div>
+        </li>
+
+
+    </ul>
+</nav>

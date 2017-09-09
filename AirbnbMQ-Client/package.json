@@ -1,0 +1,25 @@
+{
+  "name": "AirbnbMQ-Client",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "amqp": "*",
+    "body-parser": "*",
+    "connect-mongo": "*",
+    "cookie-parser": "*",
+    "cron": "*",
+    "debug": "*",
+    "ejs": "*",
+    "express": "*",
+    "express-session": "*",
+    "geocoder": "*",
+    "mongodb": "*",
+    "morgan": "*",
+    "multer": "*",
+    "ng-file-upload": "*",
+    "winston": "*"
+  }
+}

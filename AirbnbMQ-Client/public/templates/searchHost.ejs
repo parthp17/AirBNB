@@ -1,0 +1,37 @@
+<div class="container">
+
+    <div class="row">
+        <form ng-submit="getHosts()">
+            <div class="row">
+                <div class="col-md-10">
+                    <input type="text" class="form-control" ng-model="area" placeholder="Enter city for host search" required>
+                </div>
+                <div class="col-md-2" style="margin-left: -5.5%">
+                    <button type="submit" class=" btn btn-primary glyphicon glyphicon-search" ></button>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+
+    <div class="row">
+        <div class="panel panel-default" ng-repeat="host in allhosts">
+            <a href="http://github.com/fat"><div class="panel-heading" style="background: url('joker.jpg') 50% 50% no-repeat; /* 50% 50% centers image in div */width: 100%; height: 250px; position: relative;-webkit-background-size: cover;)">
+
+            </div></a>
+            <div class="panel-body text-center">
+                <h2 class="panel-title" style="font-weight: bold">{{host.fname}} {{host.lname}}</h2>
+                <p>{{host.email}}</p>
+
+                <h4>Address :</h4><p></p> {{host.address_line1}}, {{host.address_liine2}}, {{host.city}}, {{host.state}}, {{host.zipcode}}, {{host.country}}</p>
+                <a href="http://github.com/fat" target="_blank" class="btn btn-primary-outline btn-sm m-b">
+                    <span class="icon icon-add-user"></span> View Account
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+</div>

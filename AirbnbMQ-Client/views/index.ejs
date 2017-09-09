@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <p>Name: <input type="text" ng-model="data.name"></p>
+    <button ng-click="afterClick1()">Save</button>
+    <script>
+       var app = angular.module('app', []);
+       
+       function afterClick1(){
+       alert("hi1");
+       $http.get('/getData').success(function(data1) {
+			$scope.data = data1;		    
+			alert("hi1");
+		  });
+       } 
+	   
+      
+    </script>
+    
+    
+  </body>
+</html>

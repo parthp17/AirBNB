@@ -1,0 +1,83 @@
+<br>
+
+<div class="container" ng-controller="getaccount">
+    <div class="row">
+        <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{fname}} {{lname}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center">  </div>
+
+
+                        <div class=" col-md-9 col-lg-9 ">
+                            <table class="table table-user-information">
+                                <tbody>
+                                <tr>
+                                    <td>User Id:</td>
+                                    <td>{{userid}}</td>
+                                </tr>
+                                <tr ng-hide="host" ng-model="host" ng-init="host=true" >
+                                    <td>Host Id:</td>
+                                    <td>{{hostid}}</td>
+                                </tr>
+
+
+
+
+                                </tbody>
+                            </table>
+
+                            <a href="#" class="btn btn-primary" ng-click="deleteuser()">Delete User</a>
+                            <a href="#" class="btn btn-primary" ng-hide="hostbutton" ng-model="hostbutton" ng-init="hostbutton=true" ng-click="deletehost()">Delete Host</a>
+
+
+                            <div>
+                                <br>
+
+
+                    </div>
+                         </div>
+                        <div class="col-md-offset-1"  ng-hide="hostrequest" ng-model="hostrequest">
+                            <h5> You are not a host yet!! Would you like to be host? <a href="#" ng-click="requesthost()">Request to be Host</a></h5>
+
+                        </div>
+
+                        <div class="col-md-offset-1">
+                            <h5><a href="#" ng-click="reqpcform()"> Change Password</a></h5>
+
+                        </div>
+
+                        <div ng-model="passwordform" ng-hide="passwordform">
+                            <form  ng-submit="passwordchange()">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Set Password <span class="text-danger">*</span></label>
+                            <div class="col-md-5 col-sm-5">
+                                <div class="input-group">
+
+                                    <input type="password" class="form-control" name="password" id="password" ng-model="password" required placeholder="Password" value="">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                                <input name="Submit" type="submit" value="Change Password" required autofocus class="btn btn-primary" >
+
+                                </form>
+
+
+                            </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

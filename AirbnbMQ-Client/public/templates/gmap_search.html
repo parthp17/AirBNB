@@ -1,0 +1,138 @@
+<div ng-controller="gmapSearchCtrl" ng-init="gmapSearchInit()">
+    <div class="col-sm-7 col-md-7 col-lg-7" set-height style="overflow-y:auto;">
+
+        <div class="row" style="border-bottom: 1px solid lightgrey;padding:15px">
+            <div class="col-md-2">
+                <p style="color: #101; padding:10px">Location</p>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" style="width: 50%" placeholder="Location" ng-model="where" ng-change="applyFilters()">
+            </div>
+        </div>
+
+        <div class="row" style="border-bottom: 1px solid lightgrey;padding:15px">
+            <div class="col-md-2">
+                <p style="color: #101; padding:10px">Dates</p>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" style="width: 105%" placeholder="Check in" ng-model="checkin" ng-change="applyFilters()">
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" style="width: 105%" placeholder="Check out" ng-change="applyFilters()" ng-model="checkout">
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" style="width: 105%" ng-model="guests" ng-change="applyFilters()">
+                    <option value="1">1 guest</option>
+                    <option value="2">2 guest</option>
+                    <option value="3">3 guest</option>
+                    <option value="4">4 guest</option>
+                    <option value="5">5 guest</option>
+                    <option value="6">6 guest</option>
+                    <option value="7">7 guest</option>
+                    <option value="8">8 guest</option>
+                    <option value="9">9 guest</option>
+                    <option value="10">10 guest</option>
+                    <option value="11">11 guest</option>
+                    <option value="12">12 guest</option>
+                    <option value="13">13 guest</option>
+                    <option value="14">14 guest</option>
+                    <option value="15">15 guest</option>
+                </select>
+
+            </div>
+        </div>
+
+        <div class="row" style="border-bottom: 1px solid lightgrey;padding:15px">
+
+            <div class="col-md-2">
+                <p style="color: #101; padding:10px">Property Types</p>
+            </div>
+            <div class="col-md-3">
+                <label for="default" class="form-control"
+                       style="font-weight:100; border-radius:1px !important; border-color:lightgrey !important;background-color: #edefed !important;">
+                    <span class="glyphicon glyphicon-home"></span> &nbsp; Home <input type="checkbox" id="default"
+                                                                                      value="Home"
+                                                                                      ng-model="home"
+                                                                                      ng-true-value="home"
+                                                                                      ng-false-value="noHome"
+                                                                                      ng-change="applyFilters()"
+                                                                                      class="badgebox" ng-checked="true">
+                    <span class="badge" style="float: right"> &checkmark; </span>
+                </label>
+            </div>
+            <div class="col-md-3">
+                <label for="second" class="form-control"
+                       style="font-weight:100; border-radius:1px !important; border-color:lightgrey !important;background-color: #edefed !important;">
+                    <span class="glyphicon glyphicon-user"></span> Apartment <input type="checkbox" id="second"
+                                                                                    value="Apartment"
+                                                                                    ng-model="apartment"
+                                                                                    ng-true-value="apartment"
+                                                                                    ng-false-value="noApartment"
+                                                                                    ng-change="applyFilters()"
+                                                                                    class="badgebox" ng-checked="true">
+                    <span class="badge" style="float: right"> &checkmark; </span>
+                </label>
+            </div>
+            <div class="col-md-3">
+                <label for="third" class="form-control"
+                       style="font-weight:100; border-radius:1px !important; border-color:lightgrey !important;background-color: #edefed !important;">
+                    <span class="glyphicon glyphicon-home"></span> Villa <input type="checkbox" id="third"
+                                                                                value="Villa"
+                                                                                ng-model="villa"
+                                                                                ng-true-value="villa"
+                                                                                ng-false-value="noVilla"
+                                                                                ng-change="applyFilters()"
+                                                                                class="badgebox" ng-checked="true">
+                    <span class="badge" style="float: right"> &checkmark; </span>
+                </label>
+            </div>
+            <div class="col-md-3">
+                <label for="fu" class="form-control"
+                       style="font-weight:100; border-radius:1px !important; border-color:lightgrey !important;background-color: #edefed !important;">
+                    <span class="glyphicon glyphicon-home"></span> Castle <input type="checkbox" id="fourth"
+                                                                                 value="Castle"
+                                                                                 ng-model="castle"
+                                                                                 ng-true-value="castle"
+                                                                                 ng-false-value="noCastle"
+                                                                                 ng-change="applyFilters()"
+                                                                                 class="badgebox" ng-checked="true">
+                    <span class="badge" style="float: right"> &checkmark; </span>
+                </label>
+            </div>
+
+        </div>
+
+        <div class="row" style="border-bottom: 1px solid lightgrey;padding:15px">
+            <div class="col-md-2">
+                <p style="color: #101; padding:10px">Price Range</p>
+            </div>
+            <div class="col-md-9">
+                <rzslider rz-slider-model="slider.minValue"
+                          rz-slider-high="slider.maxValue"
+                          rz-slider-options="slider.options">
+                </rzslider>
+            </div>
+        </div>
+        <br>
+
+        <table>
+            <tr>
+                <td ng-repeat="x in records" style="padding: 30px 35px;display: inline-block">
+                    <div class="img" ng-click="productType(x.property_id,x.price);"><img
+                            src="./images/{{x.image.image}}">
+                        <div class="price-stamp">$ {{x.price}}</div>
+                        <div class="description">
+                            <h4>{{x.title}}</h4>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div id="map" class="col-sm-5 col-md-5 col-lg-5" set-height>
+
+    </div>
+
+</div>

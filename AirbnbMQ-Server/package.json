@@ -1,0 +1,15 @@
+{
+  "name": "AirbnbMQ-Server",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "amqp": "*",
+    "ejs": "*",
+    "mongoose-gm": "*",
+    "mysql": "*",
+    "redis":"*"
+  }
+}

@@ -1,0 +1,122 @@
+<div class="container-fluid">
+
+    <div class="col-md-12">
+
+        <div class="col-md-4">
+            <form ng-submit="fetchBills('date')">
+                <div class="row">
+                    <h4>Start Date </h4> <input type="date" ng-model="startDate" required>
+                </div>
+                <div class="row">
+                    <h4>End Date </h4> <input  type="date" ng-model="endDate" required>
+                </div>
+                <div class="row">
+                    <br>
+                    <button class="btn btn-warning" type="submit">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            <form ng-submit="fetchBills('id')">
+                <div class="row">
+                    <h4>Booking ID </h4> <input type="number" ng-model="bookingid" required>
+                </div>
+                <div class="row">
+                    <br>
+                    <button class="btn btn-warning" type="submit"> Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+            <form ng-submit="fetchBills('all')">
+                <div class="row">
+                    <br>
+                    <button class="btn btn-warning" type="submit"> Fetch all records </button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+
+<div class="col-md-12" style="overflow: scroll">
+
+
+    <table class="table table-inverse" style="width:100%">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Transaction ID</th>
+                <th>Date</th>
+                <th>Amount ($)</th>
+                <th>Buyer</th>
+                <th>Buyer Email</th>
+                <th>Seller ID</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tr ng-repeat="info in information">
+            <td>{{info.transaction_id}}</td>
+            <td>{{info.transaction_date}}</td>
+            <td>{{info.total_price}}</td>
+            <td>{{info.fname}} {{info.lname}}</td>
+            <td>{{info.email}}</td>
+            <td>{{info.host_id}}</td>
+            <td>{{info.start_date}}</td>
+            <td>{{info.end_date}}</td>
+            <td>{{info.status}}</td>
+        </tr>
+    </table>
+    <!--<div ng-repeat="info in information">-->
+        <!--<div class="panel">-->
+            <!--<div class="row">-->
+                <!--<h4>Transaction ID :</h4> {{info.transaction_id}}-->
+            <!--</div>-->
+
+            <!--<div class="row">-->
+                <!--<h4>Transaction Date :</h4> {{info.transaction_date}}-->
+            <!--</div>-->
+
+            <!--<div class="row">-->
+                <!--<h4>Amount :</h4> {{info.total_price}}-->
+            <!--</div>-->
+
+            <!--<div class="row">-->
+                <!--<h4>Buyer Name :</h4> {{info.fname}} {{info.lname}}-->
+            <!--</div>-->
+
+            <!--<div class="row">-->
+                <!--<h4>Buyer Email :</h4> {{info.email}}-->
+            <!--</div>-->
+
+            <!--<div class="row">-->
+                <!--<h4>Seller ID :</h4> {{info.host_id}}-->
+            <!--</div>-->
+
+            <!--<div class="row">-->
+                <!--<h4>Starting Date:</h4> {{info.start_date}}-->
+            <!--</div>-->
+
+            <!--<div class="row">-->
+                <!--<h4>Ending Date:</h4> {{info.end_date}}-->
+            <!--</div>-->
+
+            <!--<div class="row">-->
+                <!--<h4>Status:</h4> {{info.status}}-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+    <!--</div>-->
+
+</div>
+
+
+</div>
+

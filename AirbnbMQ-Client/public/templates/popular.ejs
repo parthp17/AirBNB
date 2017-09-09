@@ -1,0 +1,41 @@
+<div class="col-md-12" ng-repeat="property in properties">
+    <md-card>
+        <div class="row">
+            <md-card-header>
+                <div class="col-md-12" style="background: url('https://a1.muscache.com/im/pictures/10026520/717f5adc_original.jpg?aki_policy=xx_large') 50% 50% no-repeat; /* 50% 50% centers image in div */width: 104%; height: 450px; margin-top: -16px; position: relative;-webkit-background-size: cover;">
+
+                </div>
+            </md-card-header>
+        </div>
+
+        <md-card-content>
+            <div class="col-md-12">
+            <span style="font-weight: bold !important;
+            color: #484848 !important;
+            font-family: Circular,'Helvetica Neue',Helvetica,Arial,sans-serif; !important;
+            margin: 0px !important;
+            word-wrap: break-word !important;
+            font-size: 40px !important;
+            line-height: 44px !important;
+            letter-spacing: -0.6px !important;">
+
+            <p align="center">   {{property.title}}  </p>
+
+            </span>
+            </div>
+
+            <div class="row col-md-offset-1" style="margin-top: 5%">
+                <div class="col-md-4">
+                    <h4 style="color:#2a6496; font-weight: bold" align="center"> Host ID : {{property.host_id}} </h4>
+                </div>
+                <div class="col-md-3">
+                    <h4 style="color:#2a6496; font-weight: bold" align="center"> Rented : {{property.count}} times</h4>
+                </div>
+                <div class="col-md-4">
+                    <h4 style="color:#2a6496; font-weight: bold" align="center"> Cost : {{property.price}}/Night </h4>
+                </div>
+            </div>
+
+        </md-card-content>
+    </md-card>
+</div>

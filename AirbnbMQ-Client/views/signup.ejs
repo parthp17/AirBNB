@@ -1,0 +1,214 @@
+<html>
+<head><title>Sign Up</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<style>
+    @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700);
+    @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
+
+    body {
+        background: #fff;
+        font-family: 'Roboto', sans-serif;
+        color:#333;
+        line-height: 22px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 400;
+        color:#111;
+        margin-top:5px;
+        margin-bottom:5px;
+    }
+    h1, h2, h3 {
+        text-transform:uppercase;
+    }
+
+    input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+        cursor: pointer;
+        opacity: 1;
+        filter: alpha(opacity=1);
+    }
+
+    .form-inline .form-group{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .control-label {
+        color:#333333;
+    }
+
+
+</style>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-8">
+            <section>
+                <h1 class="entry-title"><span>Sign Up</span> </h1>
+                <hr>
+                <form class="form-horizontal" method="post" name="signup" id="signup" enctype="multipart/form-data" >
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">First Name <span class="text-danger">*</span></label>
+                        <div class="col-md-5 col-sm-5">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="mem_name" id="mem_name" placeholder="Enter your First Name here" value="">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Last Name <span class="text-danger">*</span></label>
+                        <div class="col-md-5 col-sm-5">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="mem_name" id="mem_name" placeholder="Enter your Name here" value="">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Email ID <span class="text-danger">*</span></label>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="input-group">
+
+                                <input type="email" class="form-control" name="emailid" id="emailid" placeholder="Enter your Email ID" value="">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            </div>
+                            <small> Your Email Id is being used for ensuring the security of your account, authorization and access recovery. </small> </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Set Password <span class="text-danger">*</span></label>
+                        <div class="col-md-5 col-sm-5">
+                            <div class="input-group">
+
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Choose password (5-15 chars)" value="">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Confirm Password <span class="text-danger">*</span></label>
+                        <div class="col-md-5 col-sm-5">
+                            <div class="input-group">
+
+                                <input type="password" class="form-control" name="cpassword" id="cpassword" placeholder="Confirm your password" value="">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <fieldset>
+
+                        <!-- Form Name -->
+                        <legend>Address Details</legend>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="textinput">Address</label>
+                            <div class="col-sm-10">
+                                <input type="text" placeholder="Address Line 1" class="form-control">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="textinput">City</label>
+                            <div class="col-sm-4">
+                                <input type="text" placeholder="City" class="form-control">
+                            </div>
+                            <label class="col-sm-2 control-label" for="textinput">State</label>
+                            <div class="col-sm-4">
+                                <input type="text" placeholder="State" class="form-control">
+                            </div>
+
+
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+
+                            <label class="col-sm-2 control-label" for="textinput">Zip code</label>
+                            <div class="col-sm-4">
+                                <input type="text" placeholder="Post Code" class="form-control">
+                            </div>
+                        </div>
+
+                    </fieldset>
+                    <br>
+                    <legend>Payment Details</legend>
+
+
+                    <div class="panel-body">
+
+                        <div class="col-md-12">
+                            <div class="credit-card-div">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+
+                                        <div class="row">
+                                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                                <h5 class="text-muted"> Credit Card Number</h5>
+                                            </div>
+                                            <div class="col-md-5 col-sm-5 col-xs-5">
+                                                <input type="number" class="form-control" placeholder="16 digit card number" />
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-md-2 col-sm-2 col-xs-2">
+                                                <span class="help-block text-muted small-font"> Expiry Month</span>
+                                                <input type="text" class="form-control" placeholder="MM" />
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-2">
+                                                <span class="help-block text-muted small-font">  Expiry Year</span>
+                                                <input type="text" class="form-control" placeholder="YY" />
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-2">
+                                                <span class="help-block text-muted small-font">  CCV</span>
+                                                <input type="text" class="form-control" placeholder="CCV" />
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-offset-1 col-md-8 col-sm-9"><span class="text-muted"><span class="label label-danger">Note:-</span> By clicking Sign Up, you agree to our <a href="#">Terms</a> and that you have read our <a href="#">Policy</a>, including our <a href="#">Cookie Use</a>.</span> </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-4 col-xs-10">
+                                <input name="Submit" type="submit" value="Sign Up" class="btn btn-primary">
+                            </div>
+                        </div>
+
+                </form>
+        </div><!-- /.col-lg-12 -->
+    </div><!-- /.row -->
+
+
+</div>
+
+
+</body>
+</html>

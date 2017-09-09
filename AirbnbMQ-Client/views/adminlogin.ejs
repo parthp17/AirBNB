@@ -1,0 +1,120 @@
+<html>
+<head>
+    <title>Admin Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+    <script src="angular/ModuleControls.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+
+</head>
+
+<body ng-app="mainModule">
+<div class="row">
+    <div class="col-xs-offset-4 col-xs-4 bordered"  style="margin-top:33px;">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#signin-tab" data-toggle="tab"><strong><span class="sp spr ar"></span>&nbsp;&nbsp;&nbsp;&nbsp;Sign in</strong></a></li>
+            <li><a href="#register-tab" data-toggle="tab"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sp spr pl"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Register</strong> </a></li>
+        </ul>
+        <br>
+        <div class="tab-content">
+            <div class="tab-pane active" id="signin-tab" ng-controller="adminLoginController">
+                <form name="signInForm" ng-submit="login(signInForm.$valid);">
+                    <div class="row" ng-hide="valid">
+                        <p style="color:red; font-size:12px"> &nbsp;&nbsp; &nbsp;&nbsp;Oops, that's not a match.</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="text" class="form-control" placeholder="Email or username" name="Name" ng-model="username" required/>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="password" class="form-control" placeholder="Password" name="pass" ng-model="password" required/>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-primary btn-block"><strong>Sign In</strong></button>
+                        </div>
+                    </div>
+                    <br>
+                </form>
+            </div>
+
+            <div class="tab-pane" id="register-tab" ng-controller="adminLoginController">
+                <form name="userForm" ng-submit="register(userForm.$valid);">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="text" class="form-control" placeholder="Username" ng-model="username" name="username" required />
+                            <div ng-hide="present"><p style="color:red"> This username already exists!</p></div>
+                            <div ng-hide="inserterr"><p style="color:red"> Oops! Looks like we are experiencing issues. We Will be back soon!</p></div>
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="password" ng-required="required"  ng-model="password" class="form-control" placeholder="Password" oncopy="return false" size="32" name="PasswordSignup" required/>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="text" ng-required="required"  ng-model="authno" class="form-control" placeholder="Authorization Number" size="32" name="authno" required/>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <input type="text" class="form-control" placeholder="First Name" ng-model="newfname" name="FirstNameSignup" required/>
+                            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Your name is required.</p>
+                        </div>
+                        <div class="col-xs-6">
+                            <input type="text" class="form-control" placeholder="Last Name" ng-model="newlname" name="LastNameSignup" required/>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-primary btn-block" ><strong>Register</strong></button>
+                        </div>
+                    </div>
+                    <br>
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

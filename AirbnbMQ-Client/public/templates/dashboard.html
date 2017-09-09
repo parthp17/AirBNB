@@ -1,0 +1,95 @@
+
+
+<div class="container">
+    <div class="row" ng-controller="dashboardcontroller">
+
+
+        <br>
+        <div class="col-md-10 col-md-offset-1">
+
+            <div class="panel panel-default panel-table">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-xs-6">
+                            <h3 class="panel-title">Pending Request--HOST</h3>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <h5 ng-hide="nolistmsg" ng-model="nolistmsg">No pending request</h5>
+                    <table class="table table-striped table-bordered table-list" ng-model="nolist" ng-hide="nolist">
+                        <thead>
+                        <tr>
+                            <th class="hidden-xs">Property</th>
+                            <th>Customer</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Value</th>
+                            <th>Approval</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="x in list track by $index">   <!--NG-REPEAT-->
+                            <td>{{x.title}} {{x.description}}<br> {{x.category_name}} <br> property id:</br><i>{{x.property_id}}</i>
+                            <br> </td>
+                            <td><h5>customer name :</h5> <i>{{x.fname}} {{x.lname}}<br></i> customer id :<br><i>{{x.user_id}}</i></td>
+                            <td>{{x.start_date}}</td>
+                            <td> {{x.end_date}}</td>
+                            <td>{{x.total_price}}</td>
+                            <td>Booking id: {{x.booking_id}} <br/> <input type="submit" class="btn btn-success" value="Approve" ng-click="approve(x.booking_id,x.user_id,x.total_price,x.property_id,x.start_date,x.end_date)"/> <br/>
+                                <br/><input type="submit" class="btn btn-danger" value=" Reject" ng-click="reject(x.booking_id)"/>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+
+
+
+
+                <div class="panel panel-default panel-table">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col col-xs-6">
+                                <h3 class="panel-title">Approved And Pending Request--USERS</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <h5 ng-model="noappmsg" ng-hide="noappmsg">No property booking approval requested</h5>
+                        <table class="table table-striped table-bordered table-list" ng-model="noapproval" ng-hide="noapproval">
+                            <thead>
+                            <tr>
+                                <th class="hidden-xs">Property</th>
+                                <!--th>Customer</th-->
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Value</th>
+                                <th>Approval</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="x in approvals track by $index">   <!--NG-REPEAT-->
+                                <td>{{x.title}}<br> {{x.description}}<br> {{x.category_name}} <br> property id:</br><i>{{x.property_id}} <br> Host Name: {{x.fname}} {{x.lname}}</i>
+                                <br></td>
+                                <!--td><h5>customer name :</h5> <i>{{x.fname}} {{x.lname}}<br></i> customer id :<br><i>{{x.host_id}}</i></td-->
+                                <td>{{x.start_date}}</td>
+                                <td> {{x.end_date}}</td>
+                                <td>{{x.total_price}}</td>
+                                <td>Booking id: {{x.booking_id}} <br> <br>Status:<br>{{x.status}}<br> </td>
+                                <td><a href="#" ng-click="hidereq(x.booking_id)">hide</a> <br> <br> <a href="#" ng-click="editreq(x.booking_id)">Edit Request</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+        </div></div></div>
